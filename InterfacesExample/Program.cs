@@ -10,6 +10,28 @@ namespace InterfacesExample
     {
         static void Main(string[] args)
         {
+            List<int> someList = new List<int>();
+            int[] nums = { 2, 4, 6, 8, 10 };
+            someList.AddRange(nums);
+
+            var db = new DatabaseManager();
+            try
+            {
+                db.OpenConnection();
+                //do something w/ db
+            }
+            finally
+            {
+                db.CloseConnection();
+            }
+
+            using (var db2 = new DatabaseManager())
+            {
+                db2.OpenConnection();
+                //do db stuffs
+
+            }//Dispose() is called , and resources are cleaned up
+
             var s = new Student();
             s.StudentID = "975018367";
             s.Name = "jane programmer";
@@ -28,8 +50,12 @@ namespace InterfacesExample
             stuList.Add(s2);
 
             stuList.Sort();
-            
-            
+
+            var sortedList = stuList
+                .OrderBy(stu => stu.Age)
+                .ToList();
+
+
             var f = new Food();
             f.Name = "Apple";
             f.Rating = 5.5;

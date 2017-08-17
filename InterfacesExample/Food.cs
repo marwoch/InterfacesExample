@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InterfacesExample
 {
-    class Food : IDisplayable
+    class Food : IDisplayable, ICloneable
     {
         public string Name { get; set; }
 
@@ -17,6 +17,11 @@ namespace InterfacesExample
         public string DisplayText()
         {
             return $"The {Name} has a rating of {Rating}";
+        }
+
+        object ICloneable.Clone()
+        {
+            return this.MemberwiseClone();
         }
     }
 }

@@ -45,8 +45,10 @@
     <Compile Include="DatabaseManager.cs" />
     <Compile Include="Food.cs" />
     <Compile Include="IDisplayable.cs" />
+    <Compile Include="IRemoteControl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RemoteClasses.cs" />
     <Compile Include="Student.cs" />
   </ItemGroup>
   <ItemGroup>
